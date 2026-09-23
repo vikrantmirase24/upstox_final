@@ -1,24 +1,20 @@
 import React, { useState } from "react";
-import { Shield, User, Lock, Mail, ArrowRight, AlertCircle } from "lucide-react";
+import { Shield, User, Lock, Mail, ArrowRight, AlertCircle, Eye, EyeOff } from "lucide-react";
 import { API } from "../config/api";
 
 export default function Login({ onLoginSuccess }) {
   const [role, setRole] = useState("ADMIN"); // ADMIN or CLIENT
-  const [email, setEmail] = useState("admin@algo.com");
-  const [password, setPassword] = useState("admin123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleRoleSwitch = (newRole) => {
     setRole(newRole);
     setError("");
-    if (newRole === "ADMIN") {
-      setEmail("admin@algo.com");
-      setPassword("admin123");
-    } else {
-      setEmail("rahul@algo.com");
-      setPassword("user123");
-    }
+    setEmail("");
+    setPassword("");
   };
 
   const handleLogin = async (e) => {
@@ -113,12 +109,20 @@ export default function Login({ onLoginSuccess }) {
             <div className="relative">
               <Lock className="absolute left-3 top-2.5 text-slate-500" size={16} />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-[#0B0F17] border border-[#1E293B] rounded-lg pl-10 pr-3 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
+                className="w-full bg-[#0B0F17] border border-[#1E293B] rounded-lg pl-10 pr-10 py-2 text-sm text-white focus:outline-none focus:border-blue-500"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword((prev) => !prev)}
+                className="absolute right-3 top-2.5 text-slate-400 hover:text-white transition"
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+              </button>
             </div>
           </div>
 
@@ -136,8 +140,7 @@ export default function Login({ onLoginSuccess }) {
 
         <div className="mt-6 pt-4 border-t border-[#1E293B] text-center">
           <p className="text-[11px] text-slate-500">
-            Default Admin: <span className="text-slate-400 font-mono">admin@algo.com / admin123</span><br />
-            Default User: <span className="text-slate-400 font-mono">rahul@algo.com / user123</span>
+            Enter your email and password to continue.
           </p>
         </div>
 
