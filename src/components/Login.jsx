@@ -47,16 +47,16 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F17] flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-[#111827] border border-[#1E293B] rounded-2xl p-8 shadow-2xl">
+    <div className="min-h-screen bg-[#0B0F17] flex items-center justify-center p-3 sm:p-4">
+      <div className="w-full max-w-md bg-[#111827] border border-[#1E293B] rounded-2xl p-5 sm:p-8 shadow-2xl">
         
         {/* Title */}
         <div className="text-center mb-6">
           <div className="inline-flex p-3 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-500 mb-3">
             <Shield size={28} />
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-white">NEXUS ALGO</h1>
-          <p className="text-xs text-slate-400 mt-1">Select your access role to continue</p>
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white">NEXUS ALGO</h1>
+          <p className="text-[11px] sm:text-xs text-slate-400 mt-1">Select your access role to continue</p>
         </div>
 
         {/* Role Toggle Switch */}
@@ -125,7 +125,7 @@ export default function Login({ onLoginSuccess }) {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white flex items-center justify-center gap-2 transition ${
+            className={`w-full py-2.5 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white flex items-center justify-center gap-2 transition ${
               role === "ADMIN" ? "bg-blue-600 hover:bg-blue-500" : "bg-emerald-600 hover:bg-emerald-500"
             }`}
           >

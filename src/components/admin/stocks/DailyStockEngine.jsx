@@ -251,14 +251,14 @@ export default function DailyStockEngine({
       {/* =====================================================
           HEADER
       ====================================================== */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
         <div>
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
+          <h2 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
             <Activity className="text-blue-500" size={22} />
             Daily Stock Engine
           </h2>
 
-          <p className="text-xs text-slate-400 mt-0.5">
+          <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">
             Jo bhi stocks yahan rahenge unpe bina kisi click ke
             schedule time par trade place ho jayegi.
           </p>
@@ -267,7 +267,7 @@ export default function DailyStockEngine({
         <button
           onClick={loadWatchlist}
           disabled={isLoadingWatchlist}
-          className="p-2 bg-[#111827] border border-[#1E293B] hover:bg-slate-800 text-slate-300 rounded-lg text-xs transition disabled:opacity-50"
+          className="self-start sm:self-auto p-2 bg-[#111827] border border-[#1E293B] hover:bg-slate-800 text-slate-300 rounded-lg text-xs transition disabled:opacity-50"
           title="Refresh List"
         >
           <RefreshCw
@@ -286,7 +286,7 @@ export default function DailyStockEngine({
           Search & Add Stock
         </h3>
 
-        <form onSubmit={handleAddStock} className="flex gap-3">
+        <form onSubmit={handleAddStock} className="flex flex-col gap-3 sm:flex-row">
           <div
             className="relative flex-1"
             ref={searchRef}
@@ -350,7 +350,7 @@ export default function DailyStockEngine({
 
           <button
             type="submit"
-            className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition flex items-center gap-1.5 shrink-0"
+            className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition flex items-center justify-center gap-1.5 shrink-0"
           >
             <Plus size={15} />
             Add Stock

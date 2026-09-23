@@ -36,7 +36,7 @@ export default function UserDashboard({ user, onLogout }) {
   return (
     <div className="min-h-screen bg-[#0B0F17] text-slate-100 font-sans">
       {/* Header */}
-      <header className="h-16 border-b border-[#1E293B] px-8 flex items-center justify-between bg-[#111827]">
+      <header className="border-b border-[#1E293B] px-4 py-3 sm:px-8 sm:py-0 sm:h-16 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between bg-[#111827]">
         <div className="flex items-center gap-3">
           <div className="bg-emerald-600/20 text-emerald-500 p-2 rounded-lg">
             <User size={18} />
@@ -46,18 +46,18 @@ export default function UserDashboard({ user, onLogout }) {
             <p className="text-[10px] text-slate-400">Dynamic Capital & Live Feed</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
           <span className="text-xs text-slate-400">Client: <strong className="text-white">{user.name}</strong></span>
-          <button onClick={onLogout} className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs transition">
+          <button onClick={onLogout} className="w-full sm:w-auto px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs transition flex items-center justify-center gap-1">
             <LogOut size={14} /> Logout
           </button>
         </div>
       </header>
 
-      <main className="p-8 max-w-6xl mx-auto space-y-6">
+      <main className="p-4 sm:p-8 max-w-6xl mx-auto space-y-6">
         
         {/* Metric Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           <div className="bg-[#111827] border border-[#1E293B] p-5 rounded-xl">
             <div className="flex items-center justify-between text-slate-400">
               <span className="text-xs font-semibold">Available Capital</span>

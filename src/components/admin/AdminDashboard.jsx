@@ -55,8 +55,9 @@ export default function AdminDashboard({ user, onLogout }) {
 
       {/* Sidebar Navigation */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 bg-[#111827] border-r border-[#1E293B] flex flex-col justify-between p-3 shrink-0 transition-all duration-300 md:static ${isSidebarOpen ? "w-64" : "w-16 md:w-20"
-          }`}
+        className={`fixed inset-y-0 left-0 z-40 bg-[#111827] border-r border-[#1E293B] flex flex-col justify-between p-3 shrink-0 transition-all duration-300 md:static md:translate-x-0 ${
+          isSidebarOpen ? "translate-x-0 w-64" : "-translate-x-full md:w-20"
+        }`}
       >
         <div>
           {/* Logo & Header */}
@@ -158,8 +159,8 @@ export default function AdminDashboard({ user, onLogout }) {
       </aside>
 
       {/* Main View Area */}
-      <main className="flex-1 min-w-0 overflow-y-auto p-4 pt-0 md:p-8">
-        <header className="-mx-4 mb-5 flex h-14 items-center gap-3 border-b border-[#1E293B] bg-[#111827] px-4 md:-mx-8 md:-mt-8 md:px-8">
+      <main className="flex-1 min-w-0 overflow-y-auto p-3 pt-0 sm:p-4 md:p-8">
+        <header className="-mx-3 mb-5 flex h-14 items-center gap-3 border-b border-[#1E293B] bg-[#111827] px-3 sm:-mx-4 sm:px-4 md:-mx-8 md:-mt-8 md:px-8">
           <button
             type="button"
             aria-label="Toggle navigation"
@@ -182,7 +183,7 @@ export default function AdminDashboard({ user, onLogout }) {
               <p className="text-xs text-slate-400">Quick view of system counters and status.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
               <div className="bg-[#111827] border border-[#1E293B] p-5 rounded-xl">
                 <p className="text-xs text-slate-400">Total Client Accounts</p>
                 <h3 className="text-2xl font-bold mt-1 text-white">{userCount}</h3>
@@ -202,16 +203,16 @@ export default function AdminDashboard({ user, onLogout }) {
 
             <div className="bg-[#111827] border border-[#1E293B] p-5 rounded-xl">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Quick Navigation</h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <button
                   onClick={() => navigate("/admin/stocks")}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold flex items-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5"
                 >
                   <Activity size={14} /> Open Daily Stock Engine
                 </button>
                 <button
                   onClick={() => navigate("/admin/users")}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5"
                 >
                   <Users size={14} /> Manage Users
                 </button>
