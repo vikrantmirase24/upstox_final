@@ -7,8 +7,7 @@ import {
 import StocksPage from "./pages/StocksPage";
 import UsersPage from "./pages/UsersPage";
 import ReportsPage from "./pages/ReportsPage";
-
-const API = "http://127.0.0.1:8000/api";
+import { API } from "../../config/api";
 
 export default function AdminDashboard({ user, onLogout }) {
   const location = useLocation();

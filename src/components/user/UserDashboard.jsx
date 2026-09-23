@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { User, Activity, LogOut, Wallet, TrendingUp, ArrowUpRight, ArrowDownRight, Clock } from "lucide-react";
+import { API } from "../../config/api";
 
 export default function UserDashboard({ user, onLogout }) {
   const [ledger, setLedger] = useState({
@@ -11,7 +12,7 @@ export default function UserDashboard({ user, onLogout }) {
 
   const loadLedger = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/user/ledger/${user.id}`);
+      const res = await fetch(`${API}/user/ledger/${user.id}`);
       if (res.ok) {
         setLedger(await res.json());
       }

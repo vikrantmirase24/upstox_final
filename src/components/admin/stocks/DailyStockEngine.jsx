@@ -9,9 +9,10 @@ import {
   RefreshCw,
   Clock,
 } from "lucide-react";
+import { API } from "../../../config/api";
 
 export default function DailyStockEngine({
-  apiBase = "http://127.0.0.1:8000/api",
+  apiBase = API,
 }) {
   const [symbol, setSymbol] = useState("");
   const [watchlist, setWatchlist] = useState([]);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Shield, User, Lock, Mail, ArrowRight, AlertCircle } from "lucide-react";
+import { API } from "../config/api";
 
 export default function Login({ onLoginSuccess }) {
   const [role, setRole] = useState("ADMIN"); // ADMIN or CLIENT
@@ -26,7 +27,7 @@ export default function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/auth/login", {
+      const res = await fetch(`${API}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, role }),

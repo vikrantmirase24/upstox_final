@@ -1,6 +1,7 @@
 import React from "react";
 import DailyStockEngine from "../../admin/stocks/DailyStockEngine";
+import { API } from "../../../config/api";
 
-export default function StocksPage({ apiBase = "http://127.0.0.1:8000/api" }) {
+export default function StocksPage({ apiBase = API }) {
   return <DailyStockEngine apiBase={apiBase} />;
 }
